@@ -1,0 +1,21 @@
+# depslib dependency file v1.0
+1522229984 source:/home/a/DOCS/CalculatePlateTemperature/main.c
+	<stdio.h>
+	<stdlib.h>
+
+1522240180 source:/home/a/DOCS/CalculatePlateTemperature-VERSION-1/main.c
+	<stdio.h>
+	<stdlib.h>
+
+1522247208 source:/home/a/DOCS/CalculatePlateTemperature-VERSION-2/main.c
+	<stdio.h>
+	<stdlib.h>
+	<stdint.h>
+	<float.h>
+
+1522262467 source:/home/a/DOCS/CalculatePlateTemperature-VERSION-3/main.c
+	<stdio.h>
+	<stdlib.h>
+	<stdint.h>
+	<float.h>
+
