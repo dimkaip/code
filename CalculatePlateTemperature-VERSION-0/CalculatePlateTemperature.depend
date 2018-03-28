@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1522229984 source:/home/a/DOCS/CalculatePlateTemperature/main.c
+	<stdio.h>
+	<stdlib.h>
+
