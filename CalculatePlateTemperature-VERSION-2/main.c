@@ -1,8 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdint.h>
+#include <float.h>
 
-
-/// Υπολογισμός θερμοκρασιών πλάκας version 1
+/// Υπολογισμός θερμοκρασιών πλάκας version 2
 
 #define ROWS 10
 #define COLS 20
@@ -15,6 +16,7 @@
 
 float m0[ROWS][COLS];
 float m1[ROWS][COLS];
+int m2[ROWS][COLS];
 
 //αρχικοποίση της m0
 void init_m0()
@@ -65,20 +67,57 @@ void change(float m[ROWS][COLS])
             m[i][j]=0.1*(m[i-1][j-1]+m[i-1][j]+m[i-1][j+1]+m[i][j-1]+2.0*m[i][j]+m[i][j+1]+m[i+1][j-1]+m[i+1][j]+m[i+1][j+1]);
 }
 
+void minmax(float m[ROWS][COLS], float*min, float* max)
+{
+    *min=FLT_MAX;
+    *max=FLT_MIN;
+
+    for(int i=1; i<ROWS; i++)
+        for(int j=1; j<COLS; j++)
+        {
+            if(*min>m[i][j])*min=m[i][j];
+            if(*max<m[i][j])*max=m[i][j];
+        }
+}
+
+void normalize(float m[ROWS][COLS],int norm[ROWS][COLS], int onsize)
+{
+    float min,max;
+    minmax(m,&min,&max);
+    float du=(float)(max-min)/onsize;
+    for(int i=1; i<ROWS; i++)
+        for(int j=1; j<COLS; j++)
+            norm[i][j]=(m[i][j]-min)/du;
+}
+
 int main()
 {
 //αρχικοποίση της m0 με διόρθωση των γωνιακών.
     init_m0();
     printf("Εκτύπωση της m0\n");
     print(m0);
+
 //αντιγραφή στην m1
     copy(m0,m1);
+
 //Αλλαγή της m1 σύμφωνα με τον τύπο
-    printf("Εκτύπωση της m1\n");
     change(m1);
-//Εκτύπωση της m1
+
+    printf("Εκτύπωση της m1\n");
     print(m1);
 
+    printf("Εκτύπωση min και max του μητρώου m1\n");
+
+    float min,max;
+    minmax(m1,&min,&max);
+
+    printf("min is:%.2f max is:%.2f", min,max);
+
+    // διαφορική θερμοκρασία
+
+    normalize(m1,m2,10);
+    printf("Εκτύπωση normalize of μητρώου m1=m2\n");
+    print(m2);
 
     return 0;
 }
