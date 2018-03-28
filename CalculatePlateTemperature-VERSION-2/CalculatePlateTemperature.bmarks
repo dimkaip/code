@@ -2,8 +2,8 @@
 <BrowseTracker_layout_file>
 	<ActiveTarget name="Debug" />
 	<File name="main.c" open="1" top="1" tabpos="1">
-		<Cursor position="2984" topLine="73" />
+		<Cursor position="2394" topLine="34" />
 		<BrowseMarks positions="" />
-		<Book_Marks positions="" />
+		<Book_Marks positions="2516" />
 	</File>
 </BrowseTracker_layout_file>

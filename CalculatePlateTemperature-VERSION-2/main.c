@@ -94,7 +94,7 @@ int return_class_of_int(float mij, int min, int max, float du)
 {
     float f=mij-min;
     int i=f/du;
-    if(i==10)i=9;
+    if(i==10)i=DIFF-1;
     return i;
 }
 
